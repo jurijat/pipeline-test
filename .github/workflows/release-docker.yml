@@ -34,7 +34,8 @@ jobs:
         with:
           flavor: |
             latest=true
-            tags=semver,pattern={{version}}
+          tags: |
+            type=semver,pattern={{version}}
           images: ${{ secrets.DOCKER_REGISTRY }}/${{ github.repository }}
 
       - name: Build and Push Docker Image
