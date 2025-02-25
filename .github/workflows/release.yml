@@ -7,6 +7,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     environment: my-test-env
+    permissions:
+      id-token: write
     steps:
       # NPM Publishing
       - name: Checkout
