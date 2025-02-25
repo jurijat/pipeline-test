@@ -2,6 +2,11 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.1.3] - 2025-02-25
+
+### Big update
+- bugs
+
 ## [1.1.1] - 2025-02-25
 
 ### Fix Release Action
