@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: my-test-env
     permissions:
+      contents: read
       id-token: write
     steps:
       # NPM Publishing
