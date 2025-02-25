@@ -66,3 +66,7 @@ jobs:
           platforms: |
             linux/amd64,
             linux/arm64
+
+      # GitHub Release
+      - name: Create GitHub Release
+        uses: open-resource-discovery/github-release@fix/validate-github-api-response
