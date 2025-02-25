@@ -27,7 +27,8 @@ jobs:
         run: npm run build
       
       - name: Publish to NPM
-        run: npm publish --access public
+      # --access public is only hard required for the initial release, but it doesn't hurt having it setup
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
@@ -65,7 +66,3 @@ jobs:
           platforms: |
             linux/amd64,
             linux/arm64
-      
-      # GitHub Release
-      - name: Create GitHub Release
-        uses: open-resource-discovery/github-release@fix/validate-github-api-response
