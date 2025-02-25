@@ -73,3 +73,5 @@ jobs:
       # GitHub Release
       - name: Create GitHub Release
         uses: open-resource-discovery/github-release@fix/validate-github-api-response
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
