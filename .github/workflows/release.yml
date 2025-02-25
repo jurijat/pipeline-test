@@ -68,4 +68,4 @@ jobs:
       
       # GitHub Release
       - name: Create GitHub Release
-        uses: open-resource-discovery/github-release@main
+        uses: open-resource-discovery/github-release@fix/validate-github-api-response
