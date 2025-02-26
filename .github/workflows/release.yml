@@ -38,17 +38,11 @@ jobs:
           # Get commit details including author and committer
           CONTRIBUTORS=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
             "https://api.github.com/repos/${REPO}/commits/${COMMIT_SHA}" \
-            | jq -r '[.author.login, .committer.login] | unique | map("@" + .) | join(", ")')
+            | jq -r '[.author.login, .committer.login] | unique | map(. | split("") | join(".")) | map("@" + .) | join(", ")')
           
           echo "### Contributors" > release_notes.md
           echo "" >> release_notes.md
           echo "Thanks to: ${CONTRIBUTORS}" >> release_notes.md
-          
-          # Print the content of release_notes.md
-          echo "Content of release_notes.md:"
-          echo "------------------------"
-          cat release_notes.md
-          echo "------------------------"
 
       # GitHub Release
       - name: Create GitHub Release
