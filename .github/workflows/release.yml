@@ -29,6 +29,27 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Get Contributors
+        id: contributors
+        run: |
+          REPO="${{ github.repository }}"
+          COMMIT_SHA="${{ github.sha }}"
+          
+          # Get commit details including author and committer
+          CONTRIBUTORS=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+            "https://api.github.com/repos/${REPO}/commits/${COMMIT_SHA}" \
+            | jq -r '[.author.login, .committer.login] | unique | map("@" + .) | join(", ")')
+          
+          echo "### Contributors" > release_notes.md
+          echo "" >> release_notes.md
+          echo "Thanks to: ${CONTRIBUTORS}" >> release_notes.md
+          
+          # Print the content of release_notes.md
+          echo "Content of release_notes.md:"
+          echo "------------------------"
+          cat release_notes.md
+          echo "------------------------"
+
       # GitHub Release
       - name: Create GitHub Release
         uses: open-resource-discovery/github-release@fix/validate-github-api-response
