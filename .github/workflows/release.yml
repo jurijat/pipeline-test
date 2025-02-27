@@ -43,6 +43,12 @@ jobs:
           echo "### Contributors" > release_notes.md
           echo "" >> release_notes.md
           echo "Thanks to: ${CONTRIBUTORS}" >> release_notes.md
+
+      # GitHub Release
+      - name: Create GitHub Release
+        uses: open-resource-discovery/github-release@fix/validate-github-api-response
+      #  with:
+      #    github-token: ${{ secrets.GH_TOKEN }}
       
       - name: Publish to NPM
       # --access public is only hard required for the initial release, but it doesn't hurt having it setup
@@ -85,10 +91,6 @@ jobs:
             linux/amd64,
             linux/arm64
 
-      # GitHub Release
-      - name: Create GitHub Release
-        uses: open-resource-discovery/github-release@fix/validate-github-api-response
-      #  with:
-      #    github-token: ${{ secrets.GH_TOKEN }}
+      
 
       
