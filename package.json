@@ -1,6 +1,6 @@
 {
   "name": "@jurijat/test",
-  "version": "1.1.11",
+  "version": "1.1.13",
   "publishConfig": {
     "access": "public"
   },
@@ -10,6 +10,7 @@
     "dist",
     "README.md"
   ],
+  "repository": {"type": "git", "url": "ssh+https://github.com/jurijat/pipeline-test"},
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
