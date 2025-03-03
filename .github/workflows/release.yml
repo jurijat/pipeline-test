@@ -46,7 +46,7 @@ jobs:
 
       # GitHub Release
       - name: Create GitHub Release
-        uses: open-resource-discovery/github-release@fix/validate-github-api-response
+        uses: open-resource-discovery/github-release@feat/fix-tag-detection
         with:
           github-token: ${{ secrets.GH_TOKEN }}
       
