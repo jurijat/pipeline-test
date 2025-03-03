@@ -49,7 +49,6 @@ jobs:
         uses: open-resource-discovery/github-release@feat/fix-tag-detection
         with:
           github-token: ${{ secrets.GH_TOKEN }}
-          tag-template: 'ms/<version>'
       
       - name: Publish to NPM
       # --access public is only hard required for the initial release, but it doesn't hurt having it setup
