@@ -4,6 +4,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [unreleased]
 
+- some changes
+
 ## [1.1.16] - 2025-02-24
 
 ### BREAKING CHANGES
