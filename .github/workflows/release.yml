@@ -10,9 +10,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      issues: write
-      checks: write
-      statuses: write
     steps:
       # NPM Publishing
       - name: Checkout
@@ -30,13 +27,11 @@ jobs:
         run: npm ci
       
       - name: Build
-        run: npm run build
+        run: npm run build     
 
       # GitHub Release
       - name: Create GitHub Release
         uses: open-resource-discovery/github-release@debug/create-pr-issue
-        with:
-          github-token: ${{ secrets.GH_TOKEN }}
       
       - name: Publish to NPM
       # --access public is only hard required for the initial release, but it doesn't hurt having it setup
