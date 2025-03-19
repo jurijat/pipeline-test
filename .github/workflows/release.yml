@@ -30,7 +30,7 @@ jobs:
 
       # GitHub Release
       - name: Create GitHub Release
-        uses: open-resource-discovery/github-release@debug/create-pr-issue
+        uses: open-resource-discovery/github-release@main
         with:
           github-token: ${{ secrets.GH_TOKEN }}
       
