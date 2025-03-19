@@ -7,6 +7,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     environment: my-test-env
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      checks: write
+      statuses: write
     steps:
       # NPM Publishing
       - name: Checkout
