@@ -29,26 +29,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Get Contributors
-        id: contributors
-        run: |
-          REPO="${{ github.repository }}"
-          COMMIT_SHA="${{ github.sha }}"
-          
-          # Get commit details including author and committer
-          CONTRIBUTORS=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
-            "https://api.github.com/repos/${REPO}/commits/${COMMIT_SHA}" \
-            | jq -r '[.author.login, .committer.login] | unique | map(. | split("") | join(".")) | map("@" + .) | join(", ")')
-          
-          echo "### Contributors" > release_notes.md
-          echo "" >> release_notes.md
-          echo "Thanks to: ${CONTRIBUTORS}" >> release_notes.md
-
       # GitHub Release
       - name: Create GitHub Release
-        uses: open-resource-discovery/github-release@feat/fix-tag-detection
-        with:
-          github-token: ${{ secrets.GH_TOKEN }}
+        uses: open-resource-discovery/github-release@main
       
       - name: Publish to NPM
       # --access public is only hard required for the initial release, but it doesn't hurt having it setup
