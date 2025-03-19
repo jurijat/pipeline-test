@@ -4,6 +4,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [unreleased]
 
+## [[1.1.18](https://github.com/jurijat/pipeline-test/releases/tag/v1.1.18)] - 2025-03-19
+
 ### BREAKING CHANGES
 
 - this is a new breaking change
